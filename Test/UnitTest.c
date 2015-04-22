@@ -41,7 +41,12 @@ class UnitTest : public testing::Test
 {
 };
 
-TEST_F(UnitTest, test1)
+TEST_F(UnitTest, success)
+{
+    EXPECT_EQ(1, 1);
+}
+
+TEST_F(UnitTest, close)
 {
     setLightValue(2000);
     bool running = true;
@@ -53,7 +58,7 @@ TEST_F(UnitTest, test1)
     }
 }
 
-TEST_F(UnitTest, test2)
+TEST_F(UnitTest, open)
 {
     setLightValue(0);
     bool running = true;
@@ -63,6 +68,11 @@ TEST_F(UnitTest, test2)
         if(!getMoving())
             break;
     }
+}
+
+TEST_F(UnitTest, fail)
+{
+    EXPECT_EQ(1, 2);
 }
 
 int main (int argc, char* argv[])
