@@ -41,11 +41,6 @@ class UnitTest : public testing::Test
 {
 };
 
-TEST_F(UnitTest, success)
-{
-    EXPECT_EQ(1, 1);
-}
-
 TEST_F(UnitTest, close)
 {
     setLightValue(2000);
@@ -68,11 +63,6 @@ TEST_F(UnitTest, open)
         if(!getMoving())
             break;
     }
-}
-
-TEST_F(UnitTest, fail)
-{
-    EXPECT_EQ(1, 2);
 }
 
 int main (int argc, char* argv[])
