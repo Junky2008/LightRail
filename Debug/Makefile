@@ -4,7 +4,7 @@ main: main.o TriggerSensor.o LightSensor.o Motor.o HAL_GPIO.o HAL_UART.o HAL_ADC
 	g++ main.o TriggerSensor.o LightSensor.o Motor.o HAL_GPIO.o HAL_UART.o HAL_ADC.o -o main
 
 test: UnitTest.o TriggerSensor.o LightSensor.o Motor.o MOC_GPIO.o MOC_UART.o MOC_ADC.o MOC_SYS.o
-	g++ -I../Test -I../Test/include -pthread UnitTest.o TriggerSensor.o LightSensor.o Motor.o MOC_GPIO.o MOC_UART.o MOC_ADC.o MOC_SYS.o -lgtest -o UnitTest
+	g++ -fprofile-arcs -ftest-coverage -fPIC -O0 -I../Test -I../Test/include -pthread UnitTest.o TriggerSensor.o LightSensor.o Motor.o MOC_GPIO.o MOC_UART.o MOC_ADC.o MOC_SYS.o -lgtest -o UnitTest
 
 TriggerSensor.o:
 	g++ -c ../Drivers/TriggerSensor.c
